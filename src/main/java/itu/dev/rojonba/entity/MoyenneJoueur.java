@@ -97,17 +97,8 @@ public class MoyenneJoueur {
         this.matchjoue = matchjoue;
     }
 
-    public double getPoins() {
-        return poins;
-    }
-
-    public void setPoins(double poins) {
-        this.poins = poins;
-    }
 
     private double matchjoue;
-    private double poins;
-
     public double getPoints() {
         return points;
     }

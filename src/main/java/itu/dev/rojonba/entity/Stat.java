@@ -120,7 +120,7 @@ public class Stat {
     }
 
     public void setTentative2pts(Integer tentative2pts) throws Exception{
-        if(tentative2pts.intValue() < 0)throw new Exception("Nombre de tentative à 2 poins non acceptable");
+        if(tentative2pts.intValue() < 0)throw new Exception("Nombre de tentative à 2 points non acceptable");
         this.tentative2pts = tentative2pts;
     }
 

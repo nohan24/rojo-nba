@@ -29,7 +29,7 @@ public class JoueurServices {
     public List<Moyenne> statistiques(Integer equipe){
         List<Moyenne> ret = new ArrayList<>();
         for(Joueur j : joueurRepository.findAllByEquipe(equipeRepository.findById(equipe).get())){
-            ret.add(new Moyenne(j, moyenneRepository.findById(j.getIdJoueur()).get()));
+            ret.add(new Moyenne(j, moyenneRepository.findById(j.getIdJoueur()).orElseGet(MoyenneJoueur::new)));
         }
         return ret;
     }
