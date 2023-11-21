@@ -2,7 +2,9 @@ package itu.dev.rojonba.entity;
 
 import jakarta.persistence.*;
 
-import java.sql.Date;
+import java.util.Date;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 
 @Entity
 public class Match {
@@ -12,12 +14,12 @@ public class Match {
     @Column(name = "idmatch")
     private Integer idMatch;
 
-    public String getDate_match() {
+    public Date getDate_match() {
         return date_match;
     }
 
     public void setDate_match(String date_match) {
-        this.date_match = date_match;
+        this.date_match = new Date(date_match);
     }
 
     public Equipe getEquipe_v() {
@@ -36,7 +38,7 @@ public class Match {
         this.equipe_l = equipe_l;
     }
 
-    private String date_match;
+    private Date date_match;
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name="equipe_visiteuse", referencedColumnName = "idEquipe")
     private Equipe equipe_v;

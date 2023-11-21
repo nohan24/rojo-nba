@@ -36,7 +36,7 @@ public class StatistiqueController {
     }
 
     @PostMapping(path = "/statistique")
-    public ResponseEntity<String> addStatistiqueJoueur(Integer match, Integer joueur, Integer rebond, Integer passedecisive, Integer interception, Integer contre, Integer minjoue, Integer lancee_marque, Integer lancee_donne, Integer tentative3pts, Integer marque3pts, Integer tentative2pts, Integer marque2pts){
+    public ResponseEntity<String> addStatistiqueJoueur(Integer match, Integer joueur, Integer rebond, Integer passedecisive, Integer interception, Integer contre, Integer minutejoue, Integer lancee_marque, Integer lancee_donne, Integer tentative3pts, Integer marque3pts, Integer tentative2pts, Integer marque2pts){
         if(!joueurRepository.existsById(joueur)){
             return new ResponseEntity<>("Joueur non trouvé", HttpStatusCode.valueOf(404));
         }
@@ -46,7 +46,7 @@ public class StatistiqueController {
         }
 
         try {
-            Stat s = new Stat(matchRepository.findById(match).get(), joueurRepository.findById(joueur).get(), rebond, passedecisive, interception, contre, minjoue, lancee_marque, lancee_donne, tentative3pts, marque3pts, tentative2pts, marque2pts);
+            Stat s = new Stat(matchRepository.findById(match).get(), joueurRepository.findById(joueur).get(), rebond, passedecisive, interception, contre, minutejoue, lancee_marque, lancee_donne, tentative3pts, marque3pts, tentative2pts, marque2pts);
             statistiqueRepository.save(s);
         } catch (Exception e) {
             return new ResponseEntity<>(e.getMessage(), HttpStatus.NOT_ACCEPTABLE);

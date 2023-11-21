@@ -27,7 +27,7 @@ public class Stat {
         setMarque3pts(marque3pts);
         setTentative2pts(tentative2pts);
         setTentative3pts(tentative3pts);
-        setTotalPoint(marque2pts*2+marque3pts*3+lanceeMarque);
+        setTotalpoint(marque2pts*2+marque3pts*3+lanceeMarque);
     }
 
     public Stat() {
@@ -145,14 +145,6 @@ public class Stat {
     private Integer tentative2pts;
     private Integer marque2pts;
 
-    public Integer getTotalPoint() {
-        return totalPoint;
-    }
-
-    public void setTotalPoint(Integer totalPoint) {
-        this.totalPoint = totalPoint;
-    }
-
     public Match getMatch() {
         return match;
     }
@@ -169,7 +161,16 @@ public class Stat {
         this.joueur = joueur;
     }
 
-    private Integer totalPoint;
+    public Integer getTotalpoint() {
+        return totalpoint;
+    }
+
+    public void setTotalpoint(Integer totalpoint) {
+        this.totalpoint = totalpoint;
+    }
+
+    @Column(name = "totalpoint")
+    private Integer totalpoint;
 
     public void setIdStat(Integer idStat) {
         this.idStat = idStat;
