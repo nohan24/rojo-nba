@@ -24,11 +24,8 @@ public class MatchController {
     @PostMapping(path = "/matchs")
     public ResponseEntity<String> insertMatch(String date, Integer equipe_v, Integer equipe_l) {
         Match m = new Match();
-        try {
-            m.setDate_match(date);
-        } catch (ParseException e) {
-            return new ResponseEntity<>(e.getMessage(), HttpStatus.NOT_ACCEPTABLE);
-        }
+        m.setDate_match(date);
+
         m.setEquipe_l(equipeRepository.findById(equipe_l).get());
         m.setEquipe_v(equipeRepository.findById(equipe_v).get());
         matchRepository.save(m);
